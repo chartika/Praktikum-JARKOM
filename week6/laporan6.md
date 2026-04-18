@@ -51,3 +51,12 @@ Pertanyaan:
 7. Apakah ada segmen yang ditransmisikan ulang dalam file trace? Apa yang anda periksa (di dalam file trace) untuk menjawab pertanyaan ini?
 
 Jawaban:
+1. Sesuai dengan yang didapatkan segmen TCP pertama memiliki relative sequence number 0. Segmen ini diidentifikasi sebagai segmen SYN karena bagian TCP Flag terdapat tanda 'Syn: Set' dengan nilai Flag 0x002.
+Segmen ini dapat diidentifikasi sebagai segmen SYN karena memiliki flag SYN yang aktif, yang berfungsi untuk memulai koneksi TCP dalam proses three-way handshake.
+![Hasil percobaan](../assets/image/week6/9.png)
+2. Pada segmen SYN-ACK (paket ke-2) nilai relative sequence number yang digunakan server adalah 0, sedangkan nilai Acknowledgment number adalah 1. Nilai acknowledgment ini diperoleh dari nilai sequence number klien sebelumnya (0) ditambah 1, sehingga pada gambar nilai Next Sequence Number adalah 1. 
+Segmen ini diidentifikasi sebagai SYN-ACK karena memiliki kedua flag SYN dan ACK yang aktif, yang menunjukkan bahwa segmen tersebut merupakan balasan dari permintaan koneksi sekaligus konfirmasi penerimaan SYN dari klien.
+![Hasil percobaan](../assets/image/week6/10.png)
+3. Berdasarkan analisis trace pada paket nomor 199, segmen TCP yang membawa perintah HTTP POST memiliki relative sequence number sebesar 164041. Segmen ini merupakan bagian awal dari pengiriman data dari klien ke server setelah koneksi TCP terbentuk, sehingga sequence number tersebut digunakan sebagai acuan dalam proses transfer data TCP.
+![Hasil percobaan](../assets/image/week6/11.png)
+4. 
