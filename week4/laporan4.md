@@ -31,9 +31,9 @@ Jawaban:
 ![Hasil Percobaan](../assets/image/week4/7.png)
 
 ### Tracing DNS dengan Wireshark
-Langkah-langkah percobaan:
+#### Percobaan ke-1:
 1. Gunakan ipconfig untuk mengosongkan catatan DNS di host
-2. Buka browser dan kosongkan cachenya
+2. Buka browser dan kosongkan cachenya, bisa dengan Ctrl+Shift+Del.
 3. Buka wireshark dan masukkan "ip.addr == 10.218.5.143" pada filter
 4. Mulai pengambilan paket pada wireshark
 5. Buka URL berikut http://www.ietf.org/ pada browser anda
@@ -57,4 +57,57 @@ atau TCP?
 - Jawaban: answers pada pesan balasan DNS adalah 2. kedua jawaban tersebut berisi alamat IP www.eitf.org yaitu 104.16.44.99 dan 104.16.45.99
 ![Hasil Percobaan](../assets/image/week4/11.png)
 6. Perhatikan paket TCP SYN yang selanjutnya dikirimkan oleh host Anda. Apakah alamat IP pada paket tersebut sesuai dengan alamat IP yang tertera pada pesan balasan DNS?
-- Jawaban: 
+- Jawaban: setelah menerima balasan DNS, host akan mengirimkan paket TCP SYN untuk memulai koneksi ke server tujuan.
+Alamat IP pada paket TCP SYN sesuai dengan alamat IP yang diperoleh dari hasil DNS response, yaitu salah satu dari IP yang telah di-resolve sebelumnya.
+7. Halaman web yang sebelumnya anda akses (http://www.ietf.org) memuat beberapa gambar. Apakah host Anda perlu mengirimkan pesan permintaan DNS baru setiap kali ingin mengakses suatu gambar?
+- Jawaban: host tidak perlu mengirimkan permintaan DNS baru setiap kali mengakses suatu gambar pada halaman web. Hal ini dikarenakan hasil resolusi DNS disimpan dalam DNS cache. Selama nilai Time To Live (TTL) masih berlaku, host dapat langsung menggunakan alamat IP yang sudah tersimpan tanpa melakukan query ulang ke server DNS.
+
+#### Percobaan ke-2
+1. Mulai capture paket pada wireshark
+2. Lakukan perintah "nslookup www.mit.edu" pada cmd
+3. Stop capturing pake pada wireshark
+
+Pertanyaan:
+1. Apa port tujuan pada pesan permintaan DNS? Apa port sumber pada pesan balasan DNS?
+- Jawaban: port tujuannya adalah 53 dan sumbernya adalah 61114
+![Hasil Percobaan](..//image/week4/12.png)
+2. Ke alamat IP manakah pesan permintaan DNS dikirimkan? Apakah alamat IP tersebut merupakan default alamat IP server DNS lokal Anda?
+- Jawaban: pesan permintaan dns dikirim ke alamat IP 10.212.0.78, alamat IP tersebut bukan alamat default IP server dns lokal
+![Hasil Percobaan](..//image/week4/13.png)
+3. Periksa pesan permintaan DNS. Apa ”jenis” atau ”type” dari pesan tersebut? Apakah pesan tersebut mengandung ”jawaban” atau ”answers”?
+- Jawaban: type dari pesan dns tersebut adalah AAAA dan tidak mengandung answer
+![Hasil Percobaan](..//image/week4/14.png)
+4. Periksa pesan balasan DNS. Berapa banyak ”jawaban” atau “answers” yang terdapat didalamnya. Apa saja isi yang terkandung dalam setiap jawaban tersebut?
+- Jawaban: pesan balasan dns memiliki 4 answer
+![Hasil Percobaan](../image/week4/15.png)
+
+#### Percobaan ke-3
+1. Mulai capture paket pada wireshark
+2. Lakukan perintah "nslookup -type=NS mit.edu" pada cmd
+3. Stop capturing paket pada wireshark
+
+Pertanyaan:
+1. Ke alamat IP manakah pesan permintaan DNS dikirimkan? Apakah alamat IP tersebut merupakan default alamat IP server DNS lokal Anda?
+- Jawaban: pesan permintaan dns dikirimkan ke alamat IP 10.212.0.78 dan alamat IP tersebut merupakan alamat IP server dns lokal
+![Hasil Percobaan](../image/week4/16.png)
+2. Periksa pesan permintaan DNS. Apa ”jenis” atau ”type” dari pesan tersebut? Apakah pesan tersebut mengandung ”jawaban” atau ”answers”?
+- Jawaban: pesan permintaan dns dengan type NS dan tidak mengandung answer
+![Hasil Persamaan](../image/week4/17.png)
+3. Periksa pesan balasan DNS. Apa nama server MIT yang diberikan oleh pesan balasan? Apakah pesan balasan ini juga memberikan alamat IP untuk server MIT tersebut?
+- Jawaban: pesan balasan dns tidak memberikan alamat IP untuk server MIT
+![Hasil Percobaan](../image/week4/18.png)
+
+#### Percobaan ke-4
+1. Mulai capture paket pada wireshark
+2. Lakukan perintah "nslookup www.aiit.or.kr bitsy.mit.edu" pada cmd
+3. Stop capturing paket pada wireshark
+
+Pertanyaan:
+1. Ke alamat IP manakah pesan permintaan DNS dikirimkan? Apakah alamat IP tersebut merupakan default alamat IP server DNS lokal Anda?
+- Jawaban: pesan permintaan di kirimkan pada alamat IP 2404:c0:bc8a:64cf:a546:ba33:3d6b 
+![Hasil Percobaan](../image/week4/19.png)
+2. Periksa pesan permintaan DNS. Apa ”jenis” atau ”type” dari pesan tersebut? Apakah pesan tersebut mengandung ”jawaban” atau ”answers”?
+- Jawaban: type permintaan pesan dns adalah AAAA dan pesan permintaan tersebut tidak mengandung answer
+![Hasil Percobaan](../image/week4/20.png)
+3. Periksa pesan balasan DNS. Berapa banyak ”jawaban” atau “answers” yang terdapat di dalamnya. Apa saja isi yang terkandung dalam setiap jawaban tersebut?
+- Jawaban: tidak ada answer
