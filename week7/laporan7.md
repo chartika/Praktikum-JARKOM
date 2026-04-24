@@ -39,5 +39,5 @@ NIM     : 103072400026
 6. Close: Menutup koneksi setelah selesai
 ![Kode Program](../image/week7/TCPServer.png)
 
-### Output TCP
+### Output TCP 
 ![Hasil Percobaan](../image/week7/Output%20TCP.png)
