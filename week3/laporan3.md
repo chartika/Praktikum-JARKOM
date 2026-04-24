@@ -12,7 +12,7 @@ Mempelajari beberapa aspek protokol HTTP dan dapat menginvestigasi cara kerja pr
 5. Hentikan pengambilan paket wireshark
 
 Hasil Percobaan:
-![Hasil Percobaan](../assets/image/week3/1.png)
+![Hasil Percobaan](../image/week3/1.png)
 
 ### HTTP CONDITIONAL GET/response interaction
 1. Jalankan browser web Anda, dan pastikan cache browser Anda dibersihkan (jika belum,
@@ -23,7 +23,7 @@ hapus terlebih dahulu cache dan history browser anda)
 5. Hentikan pengambilan paket Wireshark, dan masukkan “http” di jendela spesifikasi filter tampilan, sehingga hanya pesan HTTP yang diambil yang akan ditampilkan nanti di jendela daftar paket
 
 Hasil Percobaan:
-![Hasil Percobaan](../assets/image/week3/2.png)
+![Hasil Percobaan](../image/week3/2.png)
 
 ### Retrieving Long Documents
 1. Jalankan browser web Anda, dan pastikan cache browser Anda dibersihkan (jika belum, hapus terlebih dahulu cache dan history browser anda)
@@ -32,7 +32,7 @@ Hasil Percobaan:
 4. Hentikan pengambilan paket Wireshark, dan masukkan “http” di jendela tampilan-filterspesifikasi, sehingga hanya pesan HTTP yang diambil yang akan ditampilkan
 
 Hasil Percobaan:
-![Hasil Percobaan](../assets/image/week3/3.png)
+![Hasil Percobaan](../image/week3/3.png)
 
 ### HTML Documents dengan Embedded Objects
 1. Jalankan browser web Anda, dan pastikan cache browser Anda dibersihkan (jika belum,
@@ -47,7 +47,7 @@ diambil dari situs web gaia.cs.umass.edu.
 5. Hentikan pengambilan paket Wireshark, dan masukkan “http” di jendela tampilan-filterspesifikasi, sehingga hanya pesan HTTP yang diambil yang akan ditampilkan.
 
 Hasil Percobaan:
-![Hasil Percobaan](../assets/image/week3/4.png)
+![Hasil Percobaan](../image/week3/4.png)
 
 ### HTTP Authentication
 1. Jalankan browser web Anda, dan pastikan cache browser Anda dibersihkan (jika belum, hapus
@@ -59,4 +59,4 @@ ke dalam kotak pop up (username = wireshark-student, dan password = network).
 tampilan, sehingga hanya pesan HTTP yang diambil yang akan ditampilkan nanti di jendela daftar paket.
 
 Hasil Percobaan:
-![Hasil Percobaan](../assets/image/week3/5.png)
+![Hasil Percobaan](../image/week3/5.png)
